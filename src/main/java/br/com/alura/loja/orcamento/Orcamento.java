@@ -1,6 +1,7 @@
 package br.com.alura.loja.orcamento;
 
 import br.com.alura.loja.orcamento.situacao.EmAnalise;
+import br.com.alura.loja.orcamento.situacao.Finalizado;
 import br.com.alura.loja.orcamento.situacao.SituacaoOrcamento;
 
 import java.math.BigDecimal;
@@ -29,7 +30,7 @@ public class Orcamento {
         System.out.println("Situação atual: "+ situacao +" valor como desconto "+valor);
     }
 
-    //metodos para transitar de estados
+    //metodos para transitar de estados - State
     public void aprovar() {
         this.situacao.aprovar(this);
     }
@@ -41,6 +42,8 @@ public class Orcamento {
     public void finalizar() {
         this.situacao.finalizar(this);
     }
+
+
 
 
     public BigDecimal getValor() {
@@ -57,5 +60,10 @@ public class Orcamento {
 
     public void setSituacao(SituacaoOrcamento situacao) {
         this.situacao = situacao;
+    }
+
+    public boolean isFinalizado() {
+        //se o tipoi da instancia está finalizado
+        return situacao instanceof Finalizado;
     }
 }

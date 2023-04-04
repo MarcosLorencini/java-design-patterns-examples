@@ -1,8 +1,8 @@
 package br.com.alura.informacoes.curso;
 
-public class InformacoesCurso {
+public class CategoriaComportamental {
 
-    //Curso focado na categoria comportamental:
+    //Categoria comportamental:
 
     //Strategy -Este padrão pode ser utilizado quando há diversos possíveis algoritmos para uma ação
     // (como calcular imposto, por exemplo). Nele, nós separamos cada um dos possíveis algoritmos em classes separadas.
@@ -57,4 +57,7 @@ public class InformacoesCurso {
         //class EnviarEmailPedido
         //class SalvarPedidoNoBancoDeDados
         //class GeraPedidoHandler
+
+
+
 }
