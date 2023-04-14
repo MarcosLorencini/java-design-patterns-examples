@@ -3,6 +3,7 @@ package br.com.alura.loja.pedido;
 import br.com.alura.loja.orcamento.*;
 
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -18,9 +19,15 @@ public class GeraPedidoHandler {
     }
 
     //logica que execulta do pedido
+    //FACADE: processo complexo que envolve várias etapas, várias classes, várias chamadas de metodos
+    //ao invez de expor esta complexidade para o cliente, ele simplesmente chama uma fachada
+    //que incapsula e abstrai toda esta complexidade. Não exponde a complexidade
+    //Uma classe e metodo desse tipo nos fornece poucos métodos públicos (um só, no nosso caso),
+    // com toda a infraestrutura necessária para realizar a tarefa.
     public void  executa(GeraPedido dados) {
 
-        Orcamento orcamento = new Orcamento(dados.getValorOrcamento(), dados.getQuantidadeItens());
+        Orcamento orcamento = new Orcamento();
+        orcamento.adicionarItem(new ItemOrcamento(new BigDecimal("100")));
         Pedido pedido = new Pedido(dados.getCliente(), LocalDateTime.now(), orcamento);
 
         //com estas funções aqui vai perder a coesão o certo é extrair para uma classe separada

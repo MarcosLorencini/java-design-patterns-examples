@@ -5,6 +5,7 @@ import br.com.alura.loja.pedido.GeraPedido;
 import br.com.alura.loja.pedido.GeraPedidoHandler;
 import br.com.alura.loja.pedido.Pedido;
 import br.com.alura.loja.pedido.acao.EnviarEmailPedido;
+import br.com.alura.loja.pedido.acao.LogDePedido;
 import br.com.alura.loja.pedido.acao.SalvarPedidoNoBancoDeDados;
 
 import java.math.BigDecimal;
@@ -27,8 +28,10 @@ public class TestesPedido {
         //design patter OBSERVER, pois as 2 classes ficam observando, ouvindo para fazer algo
         //classe que execulta. Aqui passaria as dependencias(PedidoRepository.java, emailService...)
         GeraPedidoHandler geraPedidoHandler = new GeraPedidoHandler(
-                Arrays.asList(new SalvarPedidoNoBancoDeDados(), new EnviarEmailPedido())
+                Arrays.asList(new SalvarPedidoNoBancoDeDados(), new EnviarEmailPedido(), new LogDePedido())
         );
+
+        //o executar por baixo dos panos esta chamando várias tarefas
         geraPedidoHandler.executa(geraPedido);
 
 

@@ -21,14 +21,26 @@ public class CategoriaEstrutural {
     //O padrão Decorator é muito poderoso e bastante comum de ser implementado, mas possui alguns detalhes
     // importantes a serem observados, como o fato do Decorator precisar possuir a mesma interface do objeto
     // que ele está decorando.
-        //abstract class  Imposto
+    //UM OBJETO DECORANDO O OUTRO
+        //abstract class Imposto
         //class ICMS
         //class ISS
         //class TestesImpostos
 
-    //Composite
+    //Composite - compor um orçamento antigo em um novo, ou seja, reaproveitar o orcamento antigo
+    //um orcamento vai ser composto por outro orçamento
+    // classe ItemOrcamento e a classe Orcamento vai ter que ter algo em comum para fazer isso, seria criar uma inerface.
+    //Vai compondo objetos como se fosse uma estrutura de arvores
+    //Ao implementar uma interface que permita representar ItemOrcamentos e Orcamentos de forma semelhante,
+    // podemos percorrer essa lista de Orcavels facilmente, para calcular o valor do orçamento,
+    // que é a raiz da árvore.
+    //UM OBJETO COMPONDO O OUTRO
+        //class TestesComposicao
+        //class ItemOrcamento
+        //interface Orcavel
 
     //Facade
+        //class GeraPedidoHandle
 
     //Proxy
 }

@@ -5,17 +5,19 @@ import br.com.alura.loja.orcamento.situacao.Finalizado;
 import br.com.alura.loja.orcamento.situacao.SituacaoOrcamento;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 //Design patter STATE igual ao Strategy resolve o probelma de muitos ifs
-public class Orcamento {
+public class Orcamento implements Orcavel {
 
     private BigDecimal valor;
-    private int quantidadeDeItens;
     private SituacaoOrcamento situacao;
+    private List<Orcavel> itens;
 
-    public Orcamento(BigDecimal valor, int quantidadeDeItens) {
-        this.valor = valor;
-        this.quantidadeDeItens = quantidadeDeItens;
+    public Orcamento() {
+        this.valor = BigDecimal.ZERO;
+        itens = new ArrayList<>();
         //quando orçamento é criado fica em analise no primeiro estágio
         this.situacao = new EmAnalise();
     }
@@ -51,7 +53,7 @@ public class Orcamento {
     }
 
     public int getQuantidadeDeItens() {
-        return quantidadeDeItens;
+        return itens.size();
     }
 
     public SituacaoOrcamento getSituacao() {
@@ -65,5 +67,11 @@ public class Orcamento {
     public boolean isFinalizado() {
         //se o tipoi da instancia está finalizado
         return situacao instanceof Finalizado;
+    }
+
+    //metodo para add qualquer coisa que seja orcavel
+    public void adicionarItem(Orcavel item) {
+        this.valor = valor.add(item.getValor());
+        this.itens.add(item);
     }
 }
