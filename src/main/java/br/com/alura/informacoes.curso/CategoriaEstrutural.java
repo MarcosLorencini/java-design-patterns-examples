@@ -43,4 +43,6 @@ public class CategoriaEstrutural {
         //class GeraPedidoHandle
 
     //Proxy
+        //class OrcamentoProx
+        //class TestesComposite
 }
